@@ -165,21 +165,8 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 	 * @param showText 字符串资源id
 	 */
 	public void showToast(final String showText) {
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				if (toast == null) {
-					toast = Toast.makeText(PlutoActivity.this, showText, Toast.LENGTH_SHORT);
-				} else {
-					toast.setText(showText);
-					toast.setDuration(Toast.LENGTH_SHORT);
-				}
-				toast.show();
-			}
-		});
+		Toast.makeText(this,showText,Toast.LENGTH_SHORT).show();
 	}
-
-
 
 
 	/**

@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.minggo.pluto.bitmap.BitmapDisplayConfig;
-import com.minggo.pluto.bitmap.FinalBitmap;
 import com.minggo.pluto.common.CommonAsyncTask;
 import com.minggo.pluto.dialog.PlutoDialog;
 import com.minggo.pluto.util.NetworkUtils;
