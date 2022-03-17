@@ -1,4 +1,4 @@
-package com.minggo.plutoandroid;
+package com.minggo.pluto;
 
 import org.junit.Test;
 
