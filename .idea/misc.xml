@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/android_app/PlutoAndroid/app/src/main/res/layout/activity_main.xml" value="0.2390625" />
         <entry key="..\:/android_app/PlutoAndroid/pluto/src/main/res/layout/dialog_progress.xml" value="0.14947916666666666" />
+        <entry key="..\:/android_app/PlutoAndroid/pluto/src/main/res/layout/dialog_text.xml" value="0.16822916666666668" />
+        <entry key="..\:/android_app/PlutoAndroid/pluto/src/main/res/layout/fragment_progress.xml" value="0.16822916666666668" />
       </map>
     </option>
   </component>
