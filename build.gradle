@@ -6,16 +6,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://jitpack.io' }
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
 
