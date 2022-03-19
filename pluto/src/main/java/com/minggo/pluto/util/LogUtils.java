@@ -23,7 +23,7 @@ public class LogUtils {
 
 	public static boolean DISP = Pluto.LOG_SHOW;
 
-	public static String DEFAULT_TAG = "9kus";
+	public static String DEFAULT_TAG = "PLUTO";
 	private final static String UMENG_PAGE_TAG = "UmengPageTrack";
 
 	static {
@@ -38,7 +38,6 @@ public class LogUtils {
 		if (!isDISPLog) {
 			//发布模式，才做是否显示日志的判断
 			File isDispLogFile = getIsDispLogFile();
-			//9KUSREADER/show文件存在，才显示日志
 			isDISPLog = isDispLogFile.exists();
 		}
 
@@ -91,7 +90,6 @@ public class LogUtils {
 	}
 
 	/**
-	 * 显示tag为9kus
 	 * @param message 要输出的日志
 	 */
 	public static void info(String message) {
@@ -101,7 +99,6 @@ public class LogUtils {
 	}
 
 	/**
-	 * 显示tag为9kus
 	 * @param message 要输出的日志
 	 */
 	public static void info(String message, Object... args) {
