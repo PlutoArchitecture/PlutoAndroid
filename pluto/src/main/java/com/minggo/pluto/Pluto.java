@@ -8,6 +8,8 @@ import com.minggo.pluto.common.AppContext;
 import com.minggo.pluto.common.PlutoException;
 import com.minggo.pluto.util.LogUtils;
 
+import java.io.File;
+
 /**
  * Pluto 框架配置
  * Created by minggo on 2017/1/3.
@@ -59,6 +61,6 @@ public class Pluto {
         AppContext.getInstance().context = context;
         ApiUrl.URL_DOMAIN = URL_DOMAIN;
         ApiUrl.MD5KEY=MD5KEY;
-        SDPATH = Environment.getExternalStorageDirectory().getPath() + "/" + APP_CACHE_FILE + "/";
+        SDPATH = context.getExternalFilesDir(APP_CACHE_FILE) + File.separator;
     }
 }
