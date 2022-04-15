@@ -14,7 +14,7 @@ android {
         minSdk 21
         targetSdk 30
         versionCode 3
-        versionName "1.1.2"
+        versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -33,7 +33,7 @@ android {
 
     afterEvaluate {
         publishing {
-            def versionName = "1.1.2" // 当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
+            def versionName = "1.2.1" // 当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
             publications {
                 // Creates a Maven publication called "release".
                 release(MavenPublication) {
