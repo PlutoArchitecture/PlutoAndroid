@@ -26,11 +26,8 @@ import androidx.fragment.app.Fragment;
 public abstract class PlutoFragment extends Fragment implements IFragment{
 	
 	private boolean isStatistics = true; // 是否统计
-	protected String simpleName = getClass().getSimpleName();
-	private Toast toast = null;
-
 	protected Handler mUiHandler = new UiHandler(this);
-	protected PlutoDialog loadingDialog;
+	private PlutoDialog loadingDialog;
 
 	private static class UiHandler extends Handler {
 		private final WeakReference<PlutoFragment> mFragmentReference;
@@ -205,5 +202,17 @@ public abstract class PlutoFragment extends Fragment implements IFragment{
 	}
 	private void initLoadingDialog(){
 		loadingDialog = new PlutoDialog(this.getContext(),PlutoDialog.LOADING);
+	}
+
+	protected void showLoading(){
+		if (this.getActivity() != null && !this.getActivity().isDestroyed() && !this.getActivity().isFinishing() && loadingDialog != null && !loadingDialog.isShowing()){
+			loadingDialog.show();
+		}
+	}
+
+	private void hideLoading(){
+		if (this.getActivity() != null && !this.getActivity().isDestroyed() && !this.getActivity().isFinishing() && loadingDialog != null && loadingDialog.isShowing()){
+			loadingDialog.dismiss();
+		}
 	}
 }

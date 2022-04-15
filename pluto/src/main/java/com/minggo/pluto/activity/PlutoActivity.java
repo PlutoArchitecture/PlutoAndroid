@@ -17,13 +17,10 @@ import com.minggo.pluto.util.NetworkUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Timer;
 
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
-import static com.minggo.pluto.logic.LogicManager.LogicManagerType.*;
 /**
  * Activity的基类添加到应用管理堆栈和异步任务统一管理取消 添加handle处理统一使用[2015-1-27]
  * 
@@ -35,13 +32,7 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 	protected Handler mUiHandler = new UiHandler(this);
 	private final String pageName = getClass().getSimpleName();
 
-	private Toast toast = null;
-	/** 定时器 */
-	protected Timer timer;
-	/** 定时器周期，一般为1秒一次，单位毫秒 */
-	protected int timerPeriod = 1000;
-
-	protected PlutoDialog loadingDialog;
+	private PlutoDialog loadingDialog;
 
 	private static class UiHandler extends Handler {
 		private final WeakReference<PlutoActivity> mActivityReference;
@@ -61,10 +52,8 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		// 添加Activity到堆栈
 		AppManager.getAppManager().addActivity(this);
-
 		showHomeAsUp();
 		initLoadingDialog();
 	}
@@ -76,8 +65,6 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-
-		stopTimer();
 		// 结束Activity&从堆栈中移除
 		AppManager.getAppManager().finishActivity(this);
 	}
@@ -92,9 +79,7 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 	@Override
 	protected void onPause() {
 		super.onPause();
-
 		LogUtils.umengOnPause(pageName);
-
 	}
 
 	/**
@@ -246,14 +231,15 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 		onBackPressed();
 	}
 
-	/**
-	 * 停止定时器
-	 */
-	public void stopTimer(){
-		if (timer != null) {
-			timer.cancel();
-			timer = null;
+	protected void showLoading(){
+		if (!this.isDestroyed() && !this.isFinishing() && loadingDialog != null && !loadingDialog.isShowing()){
+			loadingDialog.show();
 		}
 	}
 
+	private void hideLoading(){
+		if (!this.isDestroyed() && !this.isFinishing() && loadingDialog != null && loadingDialog.isShowing()){
+			loadingDialog.dismiss();
+		}
+	}
 }
