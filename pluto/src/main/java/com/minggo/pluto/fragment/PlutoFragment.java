@@ -210,7 +210,7 @@ public abstract class PlutoFragment extends Fragment implements IFragment{
 		}
 	}
 
-	private void hideLoading(){
+	protected void hideLoading(){
 		if (this.getActivity() != null && !this.getActivity().isDestroyed() && !this.getActivity().isFinishing() && loadingDialog != null && loadingDialog.isShowing()){
 			loadingDialog.dismiss();
 		}

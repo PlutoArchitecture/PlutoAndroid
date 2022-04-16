@@ -237,7 +237,7 @@ public abstract class PlutoActivity extends AppCompatActivity implements IActivi
 		}
 	}
 
-	private void hideLoading(){
+	protected void hideLoading(){
 		if (!this.isDestroyed() && !this.isFinishing() && loadingDialog != null && loadingDialog.isShowing()){
 			loadingDialog.dismiss();
 		}
